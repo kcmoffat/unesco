@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+{% load static %}
+{% get_static_prefix as STATIC_PREFIX %}
+
+<head>
+	<title>UNESCO World Heritage Site Quiz</title>
+	<link href="{{ STATIC_PREFIX }}css/styles.css" media="screen" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+	<div id="page">
+		<div id="site_title">
+			<span>UNESCO World Heritage Site Quiz</span>
+		</div>
+		<div id="primary_content">
+			<div id="page_content">
+			    <h1 align="center">You got {{correct_answers}} of {{questions_answered}} correct!</h1>
+			    <h1 aligh="center"><a href="/quiz/new_quiz/">Click to start a new quiz</a></h1>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
