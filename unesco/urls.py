@@ -7,6 +7,7 @@ from django.views.static import *
 # admin.autodiscover()
 
 urlpatterns = patterns('',
+    url(r'^/$', 'quiz.views.index'),
     url(r'^quiz/$', 'quiz.views.index'),
     url(r'^quiz/new_quiz/$', 'quiz.views.new_quiz'),
     url(r'^quiz/(?P<quiz_id>\d+)/new_question/$', 'quiz.views.new_question'),
