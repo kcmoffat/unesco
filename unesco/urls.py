@@ -7,14 +7,14 @@ from django.views.static import *
 # admin.autodiscover()
 
 urlpatterns = patterns('',
-    url(r'^', 'quiz.views.index'),
     url(r'^quiz/$', 'quiz.views.index'),
     url(r'^quiz/new_quiz/$', 'quiz.views.new_quiz'),
     url(r'^quiz/(?P<quiz_id>\d+)/new_question/$', 'quiz.views.new_question'),
     url(r'^quiz/(?P<question_id>\d+)/question/$', 'quiz.views.question'),
     url(r'^quiz/(?P<question_id>\d+)/submit/$', 'quiz.views.submit'),
     url(r'^quiz/answer/(?P<guess_id>\d+)/$', 'quiz.views.answer'),
-    url(r'^quiz/(?P<quiz_id>\d+)/score_report/$', 'quiz.views.score_report')
+    url(r'^quiz/(?P<quiz_id>\d+)/score_report/$', 'quiz.views.score_report'),
+    url(r'^', 'quiz.views.index')
 
     # url(r'^unesco/', include('unesco.foo.urls')),
 
