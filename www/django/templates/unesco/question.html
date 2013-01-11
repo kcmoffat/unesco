@@ -20,6 +20,7 @@
 		<div id="primary_content">
 			<div id="page_content">
 				<span><img align="left" src="{{question.site.image_url}}">
+				    <div>
 				    <p><b>HINT: </b>{{brief_desc|safe}}</p>
 				    </p><strong>Which country is this UNESCO World Heritage site in?</strong>
 				    </p><form action="/quiz/{{ question.id }}/submit/" method="post">
@@ -29,6 +30,7 @@
 				    {% endfor %}
 				    <input type="submit" value="Submit"/>
 				    </form>
+				    </div>
 				</span>
 			</div>
 		</div>

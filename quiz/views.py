@@ -1,8 +1,8 @@
-from django.template import Context, loader, RequestContext
+from django.template import RequestContext
 from quiz.models import Country, Site, Quiz, Question, Choice, Guess
 from django.utils import timezone
 from django.http import HttpResponse, HttpResponseRedirect
-from random import randint, shuffle, sample
+from random import randint, shuffle
 from django.core.urlresolvers import reverse
 from django.shortcuts import render_to_response
 
