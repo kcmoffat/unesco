@@ -78,5 +78,5 @@ def get_unesco_data(url_prefix, min_id=1, max_id=1):
         result.append([unesco_id, name, country, site_url, image_url, brief_desc, long_desc, is_404, is_complete])
     return result
 
-#  Sample call to get_unesco_data.  Gets all site data.
-#  unesco_data = get_unesco_data("http://whc.unesco.org/en/list/", 1, 1404)
+# Sample call to get_unesco_data.  Gets all site data.
+# unesco_data = get_unesco_data("http://whc.unesco.org/en/list/", 1, 1404)
