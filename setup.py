@@ -13,7 +13,7 @@ import get_unesco_data
 # Store the retrieved data on localhost.
 # Make sure you have python-mysqldb installed first
 # $sudo apt-get install python-mysqldb
-db = connect(host = "localhost", user = "root", passwd = "*****", db = "site_data", charset='utf8')
+db = connect(host='localhost', user='root', passwd='*****', db='site_data', charset='utf8')
 c = db.cursor()
 c.executemany(
     """INSERT INTO sites (unesco_id, name, country, site_url, image_url, brief_desc, long_desc, is_404, is_complete)
@@ -29,7 +29,7 @@ db.close()
 # ->CREATE DATABASE unesco
 # ->CHARACTER SET utf8
 # ->COLLATE utf8_general_ci;
- 
+
 # Now run 'python manage.py syncdb' in project directory and insert scraped site_data:
 # $sudo mysql -u root -p
 # ->insert into unesco.quiz_country (name)

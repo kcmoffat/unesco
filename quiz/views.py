@@ -31,17 +31,17 @@ def index(request):
 
 def new_quiz(request):
     qz = Quiz.objects.create(created_at=timezone.now(), session_key=request.session.session_key)
-    return HttpResponseRedirect(reverse('quiz.views.new_question', args = (qz.id,)))
+    return HttpResponseRedirect(reverse('quiz.views.new_question', args=(qz.id,)))
 
 def new_question(request, quiz_id):
-    number_of_questions=len(Question.objects.filter(quiz_id=quiz_id))
+    number_of_questions = len(Question.objects.filter(quiz_id=quiz_id))
     if number_of_questions >= 10:
-        return HttpResponseRedirect(reverse('quiz.views.score_report', args = (quiz_id,)))
+        return HttpResponseRedirect(reverse('quiz.views.score_report', args=(quiz_id,)))
     else:
-        q = Question.objects.create(created_at=timezone.now(), site_id=randint(1, 776), question_number=number_of_questions+1, quiz_id=quiz_id, answered=False)
+        q = Question.objects.create(created_at=timezone.now(), site_id=randint(1, 776), question_number=number_of_questions + 1, quiz_id=quiz_id, answered=False)
         s = q.site
 
-        choice_numbers = range(1,5)
+        choice_numbers = range(1, 5)
         shuffle(choice_numbers)
 
         country_ids = range(1, 138)
@@ -53,7 +53,7 @@ def new_question(request, quiz_id):
         q.choice_set.create(created_at=timezone.now(), choice_number=choice_numbers.pop(), country_id=country_ids.pop())
         q.choice_set.create(created_at=timezone.now(), choice_number=choice_numbers.pop(), country_id=country_ids.pop())
 
-        return HttpResponseRedirect(reverse('quiz.views.question', args = (q.id,)))
+        return HttpResponseRedirect(reverse('quiz.views.question', args=(q.id,)))
 
 def question(request, question_id):
     q = Question.objects.get(pk=question_id)

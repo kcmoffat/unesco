@@ -60,7 +60,7 @@ def get_is_complete(name, country, image_url, brief_desc, long_desc):
 
 def get_unesco_data(url_prefix, min_id=1, max_id=1):
     result = []
-    for unesco_id in range(min_id, max_id + 1):        
+    for unesco_id in range(min_id, max_id + 1):
 
         response = urlopen(url_prefix + str(unesco_id))
         page = response.read()
