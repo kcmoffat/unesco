@@ -1,46 +1,48 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-
-{% load static %}
-{% get_static_prefix as STATIC_PREFIX %}
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta content="en" http-equiv="Content-Language"/>
+    <meta content="en" scheme="RFC3066" name="DC.Language"/>
 	<title>UNESCO World Heritage Sites Quiz</title>
+	{% load static %}
+    {% get_static_prefix as STATIC_PREFIX %}
 	<link href="{{ STATIC_PREFIX }}css/styles.css" media="screen" rel="stylesheet" type="text/css" />
 </head>
 
-<body>
-	<div id="page">
-		<div id="site_title">
-			<span>UNESCO World Heritage Sites Quiz</span>
-		</div>
-		<div id="primary_content">
-			<div id="page_content">
-				<img align='left' src="{{guess.choice.question.site.image_url}}"><p>
-				<strong>HINT: </strong>{{guess.choice.question.site.brief_desc|safe}}</strong>
-				    </p><strong>Which country is this UNESCO World Heritage site in?</strong>
-				    <ul>
-				    {% for choice in choices %}
-                        <li>
-		                {{ choice.country.name }}
-				        {% if choice.country.id == choice.question.site.country.id %}
-				            <font color="Green"> &nbsp&#x2713</font>
-			            {% elif guess.choice.id == choice.id %}
-			                <font color="Red"> &nbsp&#x2717</font>
-		                {% endif %}
-		                </li>
-				    {% endfor %}
-				    </ul>
-                    {% if finished %}
-                        <a href="/quiz/{{guess.choice.question.quiz.id}}/score_report/"><button>See Score Report</button></a></p>
-                    {% else %}
-				        <a href="/quiz/{{guess.choice.question.quiz.id}}/new_question/"><button>Next Question</button></a></p>
-				    {% endif %}
-				    </br><strong>{{ guess.choice.question.site.name }}</strong>{{guess.choice.question.site.long_desc|safe}}
-				</span>
-			</div>
-		</div>
-	</div>
-</body>
 
+
+<body>
+    <div id="page">
+        <div id="site_title">UNESCO World Heritage Site Quiz</div>
+        <div id="content_wrapper">
+            <div id="left_column">
+                <div id="img_wrapper" style="background: url({{guess.choice.question.site.image_url}}) no-repeat center center black">
+                </div>
+            </div>
+            <div id="right_column">
+                <div id="question_number">{{guess.choice.question.question_number}}&nbsp&of 10</div>
+                <div id="site_name">{{ question.site.name }}</div>                
+                <div id="question"><p>What country is this in?</p>
+                </br>
+                <ul>
+                {% for choice in choices %}
+                    <li>
+	                {{ choice.country.name }}
+			        {% if choice.country.id == choice.question.site.country.id %} <font color="Green"> &nbsp&#x2713</font>
+		            {% elif guess.choice.id == choice.id %} <font color="Red"> &nbsp&#x2717</font>
+	                {% endif %}
+	                </li>
+			    {% endfor %}
+			    </ul>
+                {% if finished %}
+                    <a href="/quiz/{{guess.choice.question.quiz.id}}/score_report/"><button>See Score Report</button></a></p>
+                {% else %}
+			        <a href="/quiz/{{guess.choice.question.quiz.id}}/new_question/"><button>Next Question</button></a></p>
+			    {% endif %}
+			    </div>
+            </div>
+        </div>
+    </div>
+</body>
 </html>
