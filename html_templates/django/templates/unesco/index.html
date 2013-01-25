@@ -1,33 +1,29 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-
-{% load static %}
-{% get_static_prefix as STATIC_PREFIX %}
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta content="en" http-equiv="Content-Language"/>
+    <meta content="en" scheme="RFC3066" name="DC.Language"/>
 	<title>UNESCO World Heritage Sites Quiz</title>
+	{% load static %}
+    {% get_static_prefix as STATIC_PREFIX %}
 	<link href="{{ STATIC_PREFIX }}css/styles.css" media="screen" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
-	<div id="page">
-		<div id="site_title">
-			<span>UNESCO World Heritage Sites Quiz</span>
-		</div>
-		<div id="primary_content">
-			<div id="page_content">
-			    {% if returning %}
-			        {% if current_question %}
-			            <h1 align="center">Welcome Back!  </p><a href="/quiz/{{current_question}}/question/">Resume Quiz</a></h1>
-                    {% else %}
-                        <h1 align="center">Welcome Back!  </p><a href="/quiz/{{quiz_id}}/new_question/">Resume Quiz</a></h1>
-                    {% endif %} 
-			    {% else %}
-			        <h1 align="center"><a href="/quiz/new_quiz/">Start Quiz Now</a></h1>
-		        {% endif %}
-			</div>
-		</div>
-	</div>
+    <div id="page">
+        <div id="site_title">UNESCO World Heritage Site Quiz</div>
+        <div id="content_wrapper">
+		    {% if returning %}
+		        {% if current_question %}
+		            <h1 align="center">Welcome Back!  </p><a href="/quiz/{{current_question}}/question/">Resume Quiz</a></h1>
+                {% else %}
+                    <h1 align="center">Welcome Back!  </p><a href="/quiz/{{quiz_id}}/new_question/">Resume Quiz</a></h1>
+                {% endif %}
+		    {% else %}
+		        <h1 align="center"><a href="/quiz/new_quiz/">Start Quiz Now</a></h1>
+	        {% endif %}
+        </div>
+    </div>
 </body>
-
 </html>
