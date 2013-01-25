@@ -17,7 +17,7 @@ body{
 }
 
 #content_wrapper{
-    height: 800px;
+    height: 400px;
     padding: 5px;
     background: white;
     box-shadow: 0px 0px 28px #000000;
@@ -74,7 +74,4 @@ body{
 
 #question label:hover{
     color: gray;
-}
-
-#site_description{
 }
