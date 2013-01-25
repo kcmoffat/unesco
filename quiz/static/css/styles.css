@@ -64,9 +64,15 @@ body{
     font-size: 20px;
 }
 
-#question label, li{
+#question label{
     font-size: 18px;
     line-height: 150%;
+}
+
+#question li{
+    font-size: 18px;
+    line-height: 150%;
+    margin-left: 0px;
 }
 
 #question label:hover{
