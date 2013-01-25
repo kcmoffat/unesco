@@ -24,22 +24,22 @@
                 <div id="question_number">{{guess.choice.question.question_number}} of 10</div>
                 <div id="site_name">{{ question.site.name }}</div>                
                 <div id="question"><p>What country is this in?</p>
-                </br>
-                <ul>
-                {% for choice in choices %}
-                    <li>
-	                {{ choice.country.name }}
-			        {% if choice.country.id == choice.question.site.country.id %} <font color="Green"> &nbsp&#x2713</font>
-		            {% elif guess.choice.id == choice.id %} <font color="Red"> &nbsp&#x2717</font>
-	                {% endif %}
-	                </li>
-			    {% endfor %}
-			    </ul>
-                {% if finished %}
-                    <a href="/quiz/{{guess.choice.question.quiz.id}}/score_report/"><button>See Score Report</button></a></p>
-                {% else %}
-			        <a href="/quiz/{{guess.choice.question.quiz.id}}/new_question/"><button>Next Question</button></a></p>
-			    {% endif %}
+                    </br>
+                    <ul>
+                    {% for choice in choices %}
+                        <li>
+	                    {{ choice.country.name }}
+			            {% if choice.country.id == choice.question.site.country.id %} <font color="Green"> &nbsp&#x2713</font>
+		                {% elif guess.choice.id == choice.id %} <font color="Red"> &nbsp&#x2717</font>
+	                    {% endif %}
+	                    </li>
+			        {% endfor %}
+			        </ul>
+                    {% if finished %}
+                        <a href="/quiz/{{guess.choice.question.quiz.id}}/score_report/"><button>See Score Report</button></a></p>
+                    {% else %}
+			            <a href="/quiz/{{guess.choice.question.quiz.id}}/new_question/"><button>Next Question</button></a></p>
+			        {% endif %}
 			    </div>
             </div>
         </div>
