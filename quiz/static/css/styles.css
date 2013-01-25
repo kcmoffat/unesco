@@ -37,6 +37,10 @@ body{
     font-size: 30px;
 }
 
+#content_wrapper a{
+    color: red;
+}
+
 #left_column{
     width: 640px;
     height: 400px;
