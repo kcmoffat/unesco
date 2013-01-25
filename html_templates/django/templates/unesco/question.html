@@ -4,35 +4,37 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta content="en" http-equiv="Content-Language"/>
     <meta content="en" scheme="RFC3066" name="DC.Language"/>
-
-{% load static %}
-{% get_static_prefix as STATIC_PREFIX %}
-
 	<title>UNESCO World Heritage Sites Quiz</title>
+	{% load static %}
+    {% get_static_prefix as STATIC_PREFIX %}
 	<link href="{{ STATIC_PREFIX }}css/styles.css" media="screen" rel="stylesheet" type="text/css" />
 </head>
 
-<body>
-	<div id="page">
-		<div id="site_title">
-			<span>UNESCO World Heritage Sites Quiz</span>
-		</div>
-		<div id="primary_content">
-			<div id="page_content">
-				<span><img align="left" src="{{question.site.image_url}}">
-				    <p><b>HINT: </b>{{brief_desc|safe}}</p>
-				    </p><strong>Which country is this UNESCO World Heritage site in?</strong>
-				    </p><form action="/quiz/{{ question.id }}/submit/" method="post">
-				    {% csrf_token %}
-				    {% for choice in choices %}
-				        <label for="choice{{ forloop.counter }}"><input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" />{{ choice.country.name }}</label></br>
-				    {% endfor %}
-				    <input type="submit" value="Submit"/>
-				    </form>
-				</span>
-			</div>
-		</div>
-	</div>
-</body>
 
+
+<body>
+    <div id="page">
+        <div id="site_title">UNESCO World Heritage Site Quiz</div>
+        <div id="content_wrapper">
+            <div id="left_column">
+                <div id="img_wrapper" style="background: url({{question.site.image_url}}) no-repeat center center black">
+                </div>
+            </div>
+            <div id="right_column">
+                <div id="question_number">1 of 10</div>
+                <div id="site_name">Jurisdiction of Saint-Emilion</div>                
+                <div id="question"><p>What country is this in?</p>
+                </br>
+                <form action="/quiz/{{ question.id }}/submit/" method="post">
+                {% csrf_token %}
+                {% for choice in choices %}
+                    <label for="choice{{ forloop.counter }}"><input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}"/>{{ choice.country.name }}</label></br>
+                {% endfor %}
+                <input type="submit" value="Submit"/>
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
 </html>
